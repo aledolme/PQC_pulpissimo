@@ -1,0 +1,121 @@
+{
+    name: "keccak",
+    clock_primary: "clk",
+    reset_primary: "rst_n",
+    bus_device: "reg",
+    bus_host: "",
+
+    regwidth: "32",
+    registers: [
+        { multireg:
+          { name: "din",
+            desc: "Subword of input of Keccak module",
+            count: "2",
+            cname: "din",
+            swaccess: "wo",
+            fields: [
+                { bits: "31:0"
+                }
+            ],
+          }
+        },
+        { multireg:
+          { name: "dout",
+            desc: "Subword of results.",
+            count: "2",
+            cname: "dout",
+            swaccess: "ro",
+            hwaccess: "hwo",
+            hwext: "true",
+            fields: [
+                { bits: "31:0"
+                }
+            ],
+          }
+        },
+        { name: "start",
+          desc: "Make the accelerator starts.",
+          swaccess: "wo",
+          hwaccess: "hro",
+          hwext: "true",
+          fields: [
+              { bits: "1", name: "ON",
+                desc: "Trigger operation on rising edge."
+              }
+              { bits: "0", name: "OFF",
+                desc: "Waiting for the operation to begin."
+              }
+          ]
+        },
+		{ name: "din_valid",
+          desc: "Tell us the input of Keccak module are valid.",
+          swaccess: "wo",
+          hwaccess: "hro",
+          hwext: "true",
+          fields: [
+              { bits: "1", name: "VALID",
+                desc: "Input are valid."
+              }
+              { bits: "0", name: "NOT_VALID",
+                desc: "Input are not valid."
+              }
+          ]
+        },
+		{ name: "dout_valid",
+          desc: "Tell us the output of Keccak module are valid.",
+          swaccess: "wo",
+          hwaccess: "hro",
+          hwext: "true",
+          fields: [
+              { bits: "1", name: "VALID",
+                desc: "Input are valid."
+              }
+              { bits: "0", name: "NOT_VALID",
+                desc: "Input are not valid."
+              }
+          ]
+        },
+		{ name: "buffer_full",
+          desc: "Tell us the buffer of Keccak is full.",
+          swaccess: "wo",
+          hwaccess: "hro",
+          hwext: "true",
+          fields: [
+              { bits: "1", name: "FULL",
+                desc: "Buffer is full."
+              }
+              { bits: "0", name: "NOT_FULL",
+                desc: "IBuffer is not full."
+              }
+          ]
+        },
+		{ name: "last_block",
+          desc: "Tell us the permutation is over.",
+          swaccess: "wo",
+          hwaccess: "hro",
+          hwext: "true",
+          fields: [
+              { bits: "1", name: "OVER",
+                desc: "Permutation is over."
+              }
+              { bits: "0", name: "NOT_OVER",
+                desc: "Permutation is not over."
+              }
+          ]
+        },
+		{ name: "ready",
+          desc: "Tell us the when Keccak is ready?",
+          swaccess: "wo",
+          hwaccess: "hro",
+          hwext: "true",
+          fields: [
+              { bits: "1", name: "READY",
+                desc: "It is ready."
+              }
+              { bits: "0", name: "NOT_READY",
+                desc: "It is not ready."
+              }
+          ]
+        },
+    ],
+}

@@ -1,0 +1,13 @@
+GCC ?= /usr/bin/gcc
+CFLAGS += -Wall
+RM = /bin/rm
+
+SOURCES = displayIntermediateValues.c genKAT.c KeccakDuplex.c KeccakF-1600-reference.c KeccakSponge.c KeccakNISTInterface.c
+HEADERS =  brg_endian.h crypto_hash.h displayIntermediateValues.h KeccakDuplex.h KeccakF-1600-interface.h KeccakF-1600-reference.h KeccakF-1600-int-set.h KeccakNISTInterface.h KeccakSponge.h
+
+main_Keccak: $(SOURCES) $(HEADERS) mainReference.c
+	$(GCC) $(CFLAGS) $(SOURCES) mainReference.c -o main_Keccak
+
+
+
+
