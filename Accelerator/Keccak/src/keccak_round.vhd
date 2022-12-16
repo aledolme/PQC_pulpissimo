@@ -23,7 +23,7 @@ entity keccak_round is
 port (
 
     round_in     : in  k_state;
-    round_constant_signal    : in std_logic_vector(7 downto 0);
+    round_constant_signal    : in std_logic_vector(63 downto 0);
     round_out    : out k_state);
 
 end keccak_round;
@@ -228,76 +228,12 @@ end generate;
 	end generate;
 
 
-	iota_out(0)(0)(0)<=iota_in(0)(0)(0) xor round_constant_signal(0);
-    iota_out(0)(0)(1)<=iota_in(0)(0)(1) xor round_constant_signal(1);
-    iota_out(0)(0)(2)<=iota_in(0)(0)(2)xor round_constant_signal(2);
-    iota_out(0)(0)(3)<=iota_in(0)(0)(3) xor round_constant_signal(3);
-    iota_out(0)(0)(4)<=iota_in(0)(0)(4);
-    iota_out(0)(0)(5)<=iota_in(0)(0)(5);
-    iota_out(0)(0)(6)<=iota_in(0)(0)(6);
-    iota_out(0)(0)(7)<=iota_in(0)(0)(7) xor round_constant_signal(4);
-    iota_out(0)(0)(8)<=iota_in(0)(0)(8);
-    iota_out(0)(0)(9)<=iota_in(0)(0)(9);
-    iota_out(0)(0)(10)<=iota_in(0)(0)(10);
-    iota_out(0)(0)(11)<=iota_in(0)(0)(11);
-    iota_out(0)(0)(12)<=iota_in(0)(0)(12);
-    iota_out(0)(0)(13)<=iota_in(0)(0)(13);
-    iota_out(0)(0)(14)<=iota_in(0)(0)(14);
-    iota_out(0)(0)(15)<=iota_in(0)(0)(15) xor round_constant_signal(5);
-    iota_out(0)(0)(16)<=iota_in(0)(0)(16);
-    iota_out(0)(0)(17)<=iota_in(0)(0)(17);
-    iota_out(0)(0)(18)<=iota_in(0)(0)(18);
-    iota_out(0)(0)(19)<=iota_in(0)(0)(19);
-    iota_out(0)(0)(20)<=iota_in(0)(0)(20);
-    iota_out(0)(0)(21)<=iota_in(0)(0)(21);
-    iota_out(0)(0)(22)<=iota_in(0)(0)(22);
-    iota_out(0)(0)(23)<=iota_in(0)(0)(23);
-    iota_out(0)(0)(24)<=iota_in(0)(0)(24);
-    iota_out(0)(0)(25)<=iota_in(0)(0)(25);
-    iota_out(0)(0)(26)<=iota_in(0)(0)(26);
-    iota_out(0)(0)(27)<=iota_in(0)(0)(27);
-    iota_out(0)(0)(28)<=iota_in(0)(0)(28);
-    iota_out(0)(0)(29)<=iota_in(0)(0)(29);
-    iota_out(0)(0)(30)<=iota_in(0)(0)(30);
-    iota_out(0)(0)(31)<=iota_in(0)(0)(31) xor round_constant_signal(6);
-    iota_out(0)(0)(32)<=iota_in(0)(0)(32);
-    iota_out(0)(0)(33)<=iota_in(0)(0)(33);
-    iota_out(0)(0)(34)<=iota_in(0)(0)(34);
-    iota_out(0)(0)(35)<=iota_in(0)(0)(35);
-    iota_out(0)(0)(36)<=iota_in(0)(0)(36);
-    iota_out(0)(0)(37)<=iota_in(0)(0)(37);
-    iota_out(0)(0)(38)<=iota_in(0)(0)(38);
-    iota_out(0)(0)(39)<=iota_in(0)(0)(39);
-    iota_out(0)(0)(40)<=iota_in(0)(0)(40);
-    iota_out(0)(0)(41)<=iota_in(0)(0)(41);
-    iota_out(0)(0)(42)<=iota_in(0)(0)(42);
-    iota_out(0)(0)(43)<=iota_in(0)(0)(43);
-    iota_out(0)(0)(44)<=iota_in(0)(0)(44);
-    iota_out(0)(0)(45)<=iota_in(0)(0)(45);
-    iota_out(0)(0)(46)<=iota_in(0)(0)(46);
-    iota_out(0)(0)(47)<=iota_in(0)(0)(47);
-    iota_out(0)(0)(48)<=iota_in(0)(0)(48);
-    iota_out(0)(0)(49)<=iota_in(0)(0)(49);
-    iota_out(0)(0)(50)<=iota_in(0)(0)(50);
-    iota_out(0)(0)(51)<=iota_in(0)(0)(51);
-    iota_out(0)(0)(52)<=iota_in(0)(0)(52);
-    iota_out(0)(0)(53)<=iota_in(0)(0)(53);
-    iota_out(0)(0)(54)<=iota_in(0)(0)(54);
-    iota_out(0)(0)(55)<=iota_in(0)(0)(55);
-    iota_out(0)(0)(56)<=iota_in(0)(0)(56);
-    iota_out(0)(0)(57)<=iota_in(0)(0)(57);
-    iota_out(0)(0)(58)<=iota_in(0)(0)(58);
-    iota_out(0)(0)(59)<=iota_in(0)(0)(59);
-    iota_out(0)(0)(60)<=iota_in(0)(0)(60);
-    iota_out(0)(0)(61)<=iota_in(0)(0)(61);
-    iota_out(0)(0)(62)<=iota_in(0)(0)(62);
-
-    iota_out(0)(0)(63)<=iota_in(0)(0)(63) xor round_constant_signal(7);
 
 
-	--i5103: for i in 0 to 63 generate
-	--	iota_out(0)(0)(i)<=iota_in(0)(0)(i) xor round_constant_signal(i);
-	--end generate;	
+
+	i5103: for i in 0 to 63 generate
+		iota_out(0)(0)(i)<=iota_in(0)(0)(i) xor round_constant_signal(i);
+	end generate;	
 
 
 

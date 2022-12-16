@@ -48,7 +48,15 @@ void displayPermutationIntermediateValues()
         displayRhoOffsets(f);
 
         displaySetIntermediateValueFile(f);
-        displaySetLevel(3);
+void alignLastByteOnLSB(const unsigned char *in, unsigned char *out, unsigned int length)
+{
+    unsigned int lengthInBytes;
+
+    lengthInBytes = (length+7)/8;
+    memcpy(out, in, lengthInBytes);
+    if ((length % 8) != 0)
+        out[lengthInBytes-1] = out[lengthInBytes-1] >> (8-(length%8));
+}        displaySetLevel(3);
 
         fprintf(f, "+++ Example with the all-zero input +++\n");
         fprintf(f, "\n");
@@ -333,7 +341,7 @@ void displaySpongeIntermediateValues_vhdl()
     const unsigned int capacity = 576;
     char fileName[256];
     FILE *f,*f2;
-    unsigned int count_test,i,j,k,rate,num_test=1200 ;
+    unsigned int count_test,i,j,k,rate,num_test=3 ;
     unsigned char mask,message [4000];
     unsigned int messageLength;
 	unsigned char padded_message [4000];

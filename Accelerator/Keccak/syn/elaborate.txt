@@ -1,0 +1,48 @@
+Loading db file '/software/europractice-release-2019/synopsys/synO-2018.06-SP4/libraries/syn/gtech.db'
+Loading db file '/software/europractice-release-2019/synopsys/synO-2018.06-SP4/libraries/syn/standard.sldb'
+  Loading link library 'uk65lscllmvbbr_090c125_wc'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine keccak line 140 in file
+		'../src/keccak.vhd'.
+====================================================================================
+|      Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+====================================================================================
+| permutation_computed_reg | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|       reg_data_reg       | Flip-flop | 1600  |  Y  | N  | Y  | N  | N  | N  | N  |
+|  counter_nr_rounds_reg   | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+====================================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'keccak'.
+Information: Building the design 'keccak_round'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'keccak_round_constants_gen'. (HDL-193)
+
+Statistics for case statements in always block at line 43 in file
+	'../src/keccak_round_constants_gen.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            45            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'keccak_buffer'. (HDL-193)
+
+Inferred memory devices in process
+	in routine keccak_buffer line 61 in file
+		'../src/keccak_buffer.vhd'.
+=====================================================================================
+|       Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=====================================================================================
+| dout_buffer_out_valid_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      buffer_data_reg      | Flip-flop | 1600  |  Y  | N  | Y  | N  | N  | N  | N  |
+|    count_in_words_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    count_out_words_reg    | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      buffer_full_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|         mode_reg          | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+=====================================================================================
+Presto compilation completed successfully.
+1

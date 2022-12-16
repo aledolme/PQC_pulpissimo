@@ -1,0 +1,7 @@
+define_design_lib WORK -path ./work
+ 
+set search_path [list . /software/synopsys/syn_current_64/libraries/syn /software/dk/umc65/Core-lib_LL_Multi-Voltage_Reg.Vt/synopsys ]
+set target_library [list "uk65lscllmvbbr_090c125_wc.db"]
+set synthetic_library [list "dw_foundation.sldb"]
+set link_library "* $target_library $synthetic_library"
+set symbol_library "uk65lscllmvbbr.sdb"

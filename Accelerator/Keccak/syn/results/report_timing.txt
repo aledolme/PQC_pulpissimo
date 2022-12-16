@@ -1,0 +1,71 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'keccak' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : keccak
+Version: O-2018.06-SP4
+Date   : Fri Dec 16 09:47:37 2022
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: uk65lscllmvbbr_090c125_wc   Library: uk65lscllmvbbr_090c125_wc
+Wire Load Model Mode: top
+
+  Startpoint: permutation_computed_reg
+              (rising edge-triggered flip-flop clocked by my_clk)
+  Endpoint: reg_data_reg[4][0][59]
+            (rising edge-triggered flip-flop clocked by my_clk)
+  Path Group: my_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  keccak             wl0                   uk65lscllmvbbr_090c125_wc
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  permutation_computed_reg/CK (DFQSM8RA)                  0.00 #     0.00 r
+  permutation_computed_reg/Q (DFQSM8RA)                   0.30       0.30 f
+  U6648/Z (ND2M16RA)                                      0.06       0.36 r
+  U6204/Z (INVM22RA)                                      0.04       0.40 f
+  U6208/Z (BUFM48RA)                                      0.11       0.51 f
+  U5293/Z (BUFM22RA)                                      0.12       0.63 f
+  U6264/Z (BUFM24R)                                       0.11       0.74 f
+  U5531/Z (ND2M4R)                                        0.05       0.79 r
+  U6511/Z (XNR2M2RA)                                      0.25       1.04 f
+  round_map/round_in[4][0][19] (keccak_round)             0.00       1.04 f
+  round_map/U5739/Z (INVM3R)                              0.08       1.11 r
+  round_map/U7177/Z (ND2M4R)                              0.07       1.18 f
+  round_map/U3821/Z (ND2M4R)                              0.06       1.24 r
+  round_map/U7713/Z (XNR4M2RA)                            0.38       1.62 r
+  round_map/U5279/Z (CKXOR2M8RA)                          0.32       1.94 f
+  round_map/U3199/Z (XOR2M4RA)                            0.21       2.15 r
+  round_map/U7681/Z (CKINVM4R)                            0.05       2.20 f
+  round_map/U6074/Z (ND2M2R)                              0.06       2.26 r
+  round_map/U7653/Z (CKXOR2M2RA)                          0.23       2.49 f
+  round_map/round_out[4][0][59] (keccak_round)            0.00       2.49 f
+  U8130/Z (MAOI22M4RA)                                    0.17       2.65 f
+  reg_data_reg[4][0][59]/D (DFQRM2RA)                     0.00       2.65 f
+  data arrival time                                                  2.65
+
+  clock my_clk (rise edge)                                2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  clock uncertainty                                      -0.07       1.93
+  reg_data_reg[4][0][59]/CK (DFQRM2RA)                    0.00       1.93 r
+  library setup time                                     -0.03       1.90
+  data required time                                                 1.90
+  --------------------------------------------------------------------------
+  data required time                                                 1.90
+  data arrival time                                                 -2.65
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.75
+
+
+1

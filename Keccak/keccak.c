@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
 #include "pulp.h"
 #include "fips202.h"
 
@@ -316,7 +318,6 @@ static void KeccakF1600_StatePermute(uint64_t state[25])
 
 	printf("Keccak permutation done!");
 }
-
 
 
 int main()
